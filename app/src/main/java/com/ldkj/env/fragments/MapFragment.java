@@ -68,6 +68,8 @@ public class MapFragment extends Fragment  implements AMap.OnMarkerClickListener
         super.onCreate(savedInstanceState);
         sharedPreferences = activity.getSharedPreferences(MAPPREFERENCESNAME, Context.MODE_APPEND);
         registerReceiver(activity);
+
+
     }
 
     @Override
@@ -189,6 +191,7 @@ public class MapFragment extends Fragment  implements AMap.OnMarkerClickListener
 
     @Override
     public boolean onMarkerClick(Marker marker) {
+        //点击站要做的事情
         return false;
     }
 
@@ -196,12 +199,9 @@ public class MapFragment extends Fragment  implements AMap.OnMarkerClickListener
     final class LocalReceiver extends BroadcastReceiver{
         @Override
         public void onReceive(Context context, Intent intent) {
-//            intent.getParcelableExtra()
             latLng = intent.getParcelableExtra(LocationService.KEY_LOCATION_CHANGE);
             saveLatlon();
-
             LogUtils.w(Attribute.TAG, String.format("当前的位置为： %s", latLng.toString()));
-
         }
     }
 

@@ -36,7 +36,7 @@ public class StationInfoFragment extends Fragment {
         }
     }
 
-    private StationInfoFragment() {
+    public StationInfoFragment() {
 
     }
 
